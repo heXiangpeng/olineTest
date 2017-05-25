@@ -1,0 +1,162 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="guodandan">
+    <!--必备的Css-->
+    <link href="{% static  "css/bootstrap.css"  %}" rel="stylesheet">
+    <link href="{% static "css/theme.css"  %}" rel="stylesheet">
+    <link href="{% static "css/font-awesome.min.css"  %}" rel="stylesheet">
+    <link href="{% static "css/alertify.css"  %}" rel="stylesheet">
+    <link href="{% static "css/opp-app.css"  %}" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrap">
+    <!-- navbar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div ng-include src="'navbar.html'"></div>
+            </div>
+        </div>
+    </div>
+    <!--/ navbar-->
+    <div class="container-fluid">
+        <!-- Side menu -->
+        <div class="sidebar-nav nav-collapse collapse">
+            <div class="user_side clearfix">
+                <img src="assets/img/odinn.jpg" alt="Odinn god of Thunder">
+                <h5 id="currentuser"></h5>
+                <a href="/mysetting"><i class="icon-cog"></i>  个人中心</a>
+            </div>
+            <div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle b_F79999" href="index_admin.html"><i class="icon-dashboard"></i>    <span>管理员首页</span></a>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse1"><i class="icon-reorder"></i>    <span>试题库</span></a>
+        </div>
+       <!-- <div id="collapse1" class="accordion-body collapse in" style="height:auto">-->
+        <div id="collapse1" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <a class="accordion-toggle" href="/examinee/singlechoice"><i class="icon-star"></i>   单选题</a>
+                <a class="accordion-toggle" href="multiplechoice"><i class="icon-list-alt"></i>   多选题</a>
+                <a class="accordion-toggle" href="/judgechoice"><i class="icon-table"></i>   判断题</a>
+                <a class="accordion-toggle" href="/tiangkong"><i class="icon-table"></i>   填空题</a>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2"><i class="icon-reorder"></i>    <span>组织考试</span></a>
+        </div>
+        <div id="collapse2" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <a class="accordion-toggle" href="/examinee/maketest"><i class="icon-rss"></i>   管理套题</a>
+                <a class="accordion-toggle" href="/examineebatch"><i class="icon-calendar"></i>   考生分批</a>
+                <a class="accordion-toggle" href="/organizationexa"><i class="icon-picture"></i>   组织考试</a>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse3"><i class="icon-reorder"></i>    <span>成绩管理</span></a>
+        </div>
+        <div id="collapse3" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <a class="accordion-toggle" href="/analyticsexam"><i class="icon-rss"></i>   考试成绩统筹图</a>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle b_F6F1A2" href="/examineestudent"><i class="icon-tasks"></i>    <span>考生信息管理</span></a>
+        </div>
+    </div>
+</div>
+        </div>
+        <!-- /Side menu -->
+
+        <!-- Main window -->
+        <div class="main_container" id="forms_page">
+            <div class="row-fluid">
+                <ul class="breadcrumb">
+                </ul>
+                <h4 class="heading">
+                    首页主界面
+                    <div class="btn-group pull-right">
+                    </div>
+                </h4>
+            </div>
+            <div class="row-fluid">
+                <div class="widget span12" style="overflow:visible;">
+                    <a class="btn btn-box bubble bubble-danger span2 tips" data-title="bubble-danger" href="/examineestudent" data-bubble="0" id="countex"><i class="icon-user"></i>  <span>考生信息管理</span></a>
+                    <a class="btn btn-box span2" href="/examinee/maketest"><i class="icon-plus-sign"></i>  <span>管理套题</span></a>
+                    <a class="btn btn-box bubble bubble-success span2 tips" data-title="bubble-success" href="/examineebatch" ><i class="icon-sitemap"></i>  <span>考生分批</span></a>
+                    <a class="btn btn-box span2" href="/organizationexa"><i class="icon-calendar"></i>  <span>组织考试</span></a>
+                    <a class="btn btn-box bubble bubble-info span2 tips" data-title="bubble-info" href="/analyticsexam" ><i class="icon-signal"></i>  <span>考试成绩统筹图</span></a>
+
+                </div><!-- /widget -->
+            </div><!-- /row-fluid -->
+            <div class="row-fluid">
+
+            </div>
+
+        </div>
+        <!-- /Main window -->
+
+    </div><!--/.fluid-container-->
+</div><!-- wrap ends-->
+
+<script type="text/javascript" src="{% static "js/angular.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.cookie.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/raphael-min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+<script type="text/javascript" src="{% static "js/sparkline.js" %}"></script>
+<script type="text/javascript" src="{% static "js/morris.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.dataTables.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.masonry.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.imagesloaded.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.facybox.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.alertify.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.knob.js" %}"></script>
+<script type='text/javascript' src="{% static "js/fullcalendar.min.js" %}"></script>
+<script type='text/javascript' src="{% static "js/jquery.gritter.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/realm.js" %}"></script>
+<script type="text/javascript" src="{% static "js/layer.js" %}"></script>
+<script type="text/javascript" src="{% static "js/opp-app.js" %}"></script>
+<script type="text/javascript">
+    $(function () {
+        //考生总数
+        $.ajax({
+            type: "GET",
+            url: "/examinee/count",
+            success: function (data) {
+                
+                if(data.rc==0){
+                     $("#countex").attr("data-bubble",data.data);
+                 }else {
+                //     guodandan.notAuth();
+                 }
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
